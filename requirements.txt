@@ -1,0 +1,3 @@
+- Python 3.7 or later
+- The requests module (installable via pip)
+  pip install requests
