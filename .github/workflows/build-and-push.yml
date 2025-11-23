@@ -2,6 +2,7 @@ name: Create and publish a Docker image
 
 on:
   push:
+    # Adaptation du workflow donné en source à la question 3:
     branches: ['main']
 
 env:
@@ -38,6 +39,14 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      # Modification du workflow liée à la question 4 du labroatoire:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          format: 'table'
+          exit-code: '0'
+      # Fin de la modification du workflow liée à la question 4 du laboratoire.
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
         with:
