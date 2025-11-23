@@ -5,7 +5,7 @@ This is a very simple Python script that queries an API to get a random joke tha
 I chose Python because it's a language whose basics I understand
 
 • How to Install and Run the Project:
-- Install Python 3.7 or later
+- Install Python 3.13 or later
 - Install the requests module
   _pip install requests_
 
